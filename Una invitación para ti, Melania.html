@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#170e24">
+<meta name="color-scheme" content="dark">
+<title>Una invitación para ti, Melania 💌</title>
+<meta property="og:title" content="Una invitación para ti, Melania 💌">
+<meta property="og:description" content="Tengo algo que preguntarte. Ábrelo con calma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--pink:#ff87ad;--rose:#ff4f83;--cream:#fff3e9;--gold:#ffd58a;--muted:#dfcddd;--line:#ffffff22;--serif:'Playfair Display',Georgia,serif;--script:'Dancing Script','Segoe Script',cursive,Georgia,serif}
+*{box-sizing:border-box}html{min-height:100%;background:#170e24}
+body{margin:0;min-height:100svh;color:var(--cream);font-family:Georgia,serif;background:radial-gradient(ellipse at top,#4a2149 0%,#21132d 45%,#100b19 100%);overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.app{width:min(640px,100%);min-height:100svh;margin:auto;padding:calc(18px + env(safe-area-inset-top,0px)) 15px calc(22px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column}
+.dots{display:flex;justify-content:center;gap:8px;padding:6px 0 16px}
+.dot{width:8px;height:8px;border-radius:50%;background:#ffffff2a;transition:.3s}.dot.on{background:var(--pink);box-shadow:0 0 10px var(--rose);width:22px;border-radius:99px}
+.stage{flex:1;display:flex;align-items:center}
+.card{width:100%;padding:clamp(24px,6vw,40px) clamp(18px,5vw,34px);text-align:center;border:1px solid var(--line);border-radius:28px;background:linear-gradient(150deg,#ffffff0e,#ffffff05);box-shadow:0 24px 70px #00000030;animation:appear .5s ease both}
+.eyebrow{font:700 .72rem/1.6 system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+h1,h2{font-family:var(--serif);margin:14px 0 16px;line-height:1.12}
+h1{font-size:clamp(2.2rem,9vw,3.8rem);color:#fff3f6;text-shadow:0 0 26px #ff4f8340}h1 span{display:block;color:var(--pink)}
+h2{font-size:clamp(1.6rem,6.5vw,2.3rem);color:#ffd5e1}
+p{font-size:clamp(1.04rem,3.7vw,1.2rem);line-height:1.85;color:var(--muted);margin:0 auto 14px;max-width:500px}
+.icon{font-size:clamp(4rem,18vw,6rem);margin:6px 0;animation:pulse 1.8s ease-in-out infinite;filter:drop-shadow(0 0 18px #ff4f836c)}
+.info{display:grid;gap:10px;margin:18px auto 4px;max-width:420px;text-align:left}
+.info div{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid #ffffff1f;border-radius:16px;background:#ffffff08}
+.info em{font-style:normal;font-size:1.5rem}.info b{display:block;font:700 .7rem system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}.info span{color:#fbe9f1;line-height:1.4}
+.actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:24px;min-height:56px}
+.btn{border:0;border-radius:999px;padding:14px 24px;min-height:50px;font:700 .98rem/1.3 system-ui,sans-serif;transition:transform .25s ease}
+.btn:active{transform:scale(.97)}.btn:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.primary{color:#351221;background:linear-gradient(135deg,#ffb2ca,#ff5c8c);box-shadow:0 9px 24px #ff4f8338}
+.ghost{color:#f9e9f2;border:1px solid #ffffff36;background:#ffffff0a}
+.locked{color:#d9c4d6;border:1px dashed #ffffff44;background:#ffffff08}
+.sign{font-family:var(--script);font-size:1.8rem;color:var(--pink);margin-top:8px}
+.big{font-family:var(--script);font-size:clamp(3rem,15vw,5.2rem);color:var(--pink);line-height:1.05;margin:14px 0 8px;text-shadow:0 0 28px #ff4f8366}
+.code{display:block;width:min(280px,100%);margin:6px auto 0;padding:13px 16px;text-align:center;font:1.05rem system-ui,sans-serif;color:var(--cream);background:#ffffff0d;border:1px solid #ffffff3a;border-radius:14px}
+.err{min-height:1.4em;margin:10px 0 0;font:.85rem system-ui,sans-serif;color:#ffb3c6}
+.conf{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
+.bit{position:absolute;top:-40px;animation:fall linear forwards}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@media(max-width:380px){.btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="conf" class="conf" aria-hidden="true"></div>
+<main class="app">
+  <div id="dots" class="dots" aria-hidden="true"></div>
+  <div id="stage" class="stage" aria-live="polite"></div>
+</main>
+<script>
+/* ====== PERSONALIZA AQUÍ ====== */
+const CONFIG = {
+  WHEN:  'Hoy, a la hora que tú elijas ✨',
+  WHERE: 'Es una sorpresa 🤫',
+  PLAN:  'Tú solo trae tu sonrisa',
+  CODE:  'nuestrodia',   // Palabra secreta que le dirás en persona para abrir el regalo
+  GIFT_URL: 'https://gutimaynor678-art.github.io/5meses-m27/'
+};
+/* =============================== */
+const stage=document.getElementById('stage'), dotsEl=document.getElementById('dots');
+const N=5; let step=0, tries=0, dodge={x:0,y:0};
+const noLabels=['Déjame pensarlo…','¿Segura? 🥺','Piénsalo bien…','Ándale, di que sí 💗','Bueno, mejor sí 💗'];
+const norm=v=>v.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');
+
+function render(){
+ dotsEl.innerHTML=Array.from({length:N},(_,i)=>`<span class="dot ${i===step?'on':''}"></span>`).join('');
+ let h='';
+ if(step===0) h=`<div class="eyebrow">Solo para Melania</div><div class="icon">💌</div><h1>Tengo una <span>invitación para ti</span></h1><p>Ábrela con calma, mi amor. Es corta, pero la preparé pensando en ti.</p><div class="actions"><button class="btn primary" id="go">Abrir invitación ✨</button></div>`;
+ else if(step===1) h=`<div class="eyebrow">Una pregunta importante</div><h2>Hoy quiero salir contigo</h2><p>Sin prisas, sin relojes y sin planes complicados. Solo tú, yo y un rato que se convierta en recuerdo.</p><p>Después de tanto cariño y cinco meses juntos, me parece que merecemos un día solo para nosotros.</p><div class="actions"><button class="btn ghost" id="back">← Volver</button><button class="btn primary" id="go">Ver los detalles 🌙</button></div>`;
+ else if(step===2) h=`<div class="eyebrow">Los detalles</div><h2>Así será nuestra salida</h2><div class="info"><div><em>🕰️</em><section><b>Cuándo</b><span id="w"></span></section></div><div><em>📍</em><section><b>Dónde</b><span id="p"></span></section></div><div><em>👗</em><section><b>Qué llevar</b><span id="l"></span></section></div></div><div class="actions"><button class="btn ghost" id="back">← Volver</button><button class="btn primary" id="go">Continuar 💗</button></div>`;
+ else if(step===3) h=`<div class="eyebrow">La pregunta</div><div class="icon">🥰</div><h2>¿Aceptas salir conmigo hoy?</h2><p>Puedes pensarlo todo lo que quieras… pero ojalá me digas que sí.</p><div class="actions" id="act"><button class="btn primary" id="yes">¡Sí, acepto! 💗</button><button class="btn ghost" id="no" style="transform:translate(${dodge.x}px,${dodge.y}px)">${noLabels[Math.min(tries,4)]}</button></div>`;
+ else h=`<div class="eyebrow">Mi amor, ya dijiste que sí 💗</div><div class="big">Continuará…</div><p>Esta historia no termina aquí. Hay algo más esperándote, pero solo lo podrás abrir cuando estemos juntos.</p><div class="actions" id="act2"><button class="btn locked" id="lock">🔒 Abrir mi regalo</button></div><div id="codeBox"></div><div class="sign">Te espero, Melania ❤️</div>`;
+ stage.innerHTML=`<article class="card">${h}</article>`;
+ if(step===2){document.getElementById('w').textContent=CONFIG.WHEN;document.getElementById('p').textContent=CONFIG.WHERE;document.getElementById('l').textContent=CONFIG.PLAN;}
+ const $=id=>document.getElementById(id);
+ if($('go'))$('go').onclick=()=>{step++;render()};
+ if($('back'))$('back').onclick=()=>{step--;render()};
+ if($('yes'))$('yes').onclick=accept;
+ if($('no'))$('no').onclick=()=>{
+  tries++;
+  if(tries>=5){accept();return;}
+  dodge={x:Math.round((Math.random()-.5)*90),y:Math.round((Math.random()-.5)*30)};
+  render();
+ };
+ if($('lock'))$('lock').onclick=openCode;
+ const f=$('go')||$('yes')||$('lock'); if(f)f.focus({preventScroll:true});
+ window.scrollTo({top:0});
+}
+function accept(){step=4;render();confetti();}
+function openCode(){
+ document.getElementById('codeBox').innerHTML='<p style="margin-top:18px">Escribe la palabra secreta que te diré en persona:</p><input id="c" class="code" autocomplete="off" aria-label="Palabra secreta"><div class="err" id="e" role="alert"></div><div class="actions" style="margin-top:12px"><button class="btn primary" id="ok">Abrir 💌</button></div>';
+ const c=document.getElementById('c');c.focus();
+ const check=()=>{
+  if(norm(c.value)===norm(CONFIG.CODE)){confetti();setTimeout(()=>{location.href=CONFIG.GIFT_URL},900);}
+  else document.getElementById('e').textContent='Todavía no es esa… pídemela cuando nos veamos 💗';
+ };
+ document.getElementById('ok').onclick=check;
+ c.addEventListener('keydown',e=>{if(e.key==='Enter')check()});
+}
+function confetti(){
+ const a=document.getElementById('conf'),em=['💗','❤️','💕','✨','💖','🌙'];
+ for(let i=0;i<44;i++){const el=document.createElement('span');el.className='bit';el.textContent=em[Math.floor(Math.random()*em.length)];el.style.left=Math.random()*100+'%';el.style.animationDuration=(2.6+Math.random()*3)+'s';el.style.animationDelay=(Math.random()*.5)+'s';el.style.fontSize=(16+Math.random()*18)+'px';a.appendChild(el);setTimeout(()=>el.remove(),6500);}
+}
+render();
+</script>
+</body>
+</html>
